@@ -47,12 +47,12 @@ qeta:
   tags:
     allowCreation: true
     allowedTags:
-      - test
-      - tag2
+      - qa
+      - comments
     max: 5
   moderators:
-    - group:default/my-group
-    - user:default/my-user
+    - group:statusneo
+    - user:Druva
   storage:
     disabled: true
     type: database
