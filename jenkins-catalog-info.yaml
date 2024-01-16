@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 'jenkins-component'
+  description: 'jenkins jobs'
+  annotations:
+    'jenkins.io/job-full-name': jenkins-job-test # use this instead
+
+spec:
+  type: service
+  lifecycle: experimental
+  owner: Druva

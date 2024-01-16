@@ -32,6 +32,32 @@ backend:
     connection: ':memory:'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
+jenkins:
+  baseUrl: http://localhost:8080
+  username: druva
+  apiKey: 111ea1de081c05e6b1dc84faac8a3a3c52
+
+qeta:
+  allowAnonymous: true
+  allowMetadataInput: false
+  allowGlobalEdits: false
+  entities:
+    kinds: ['Component']
+    max: 3
+  tags:
+    allowCreation: true
+    allowedTags:
+      - test
+      - tag2
+    max: 5
+  moderators:
+    - group:default/my-group
+    - user:default/my-user
+  storage:
+    disabled: true
+    type: database
+    folder: /tmp/my-attachments
+
 integrations:
   github:
     - host: github.com
@@ -88,11 +114,22 @@ catalog:
         - allow: [Template]
 
     - type: file
+      target: ../../jenkins-catalog-info.yaml
+      rules:
+        - allow: [Component]
+
+    - type: file
       target: ../../examples/entities.yaml
 
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+
+    # Local example template
+    - type: file
+      target: ../../examples/template/formTemplate.yaml
       rules:
         - allow: [Template]
 
